@@ -6,7 +6,11 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(56);
   @override
   Widget build(BuildContext context) {
-    return AppBar(title: Text('Profile'));
+    return AppBar(
+      backgroundColor: Color(0xFF41E9C7),
+      title: Text('Profile Settings'),
+      centerTitle: true,
+    );
   }
 }
 

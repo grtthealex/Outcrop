@@ -27,14 +27,12 @@ class _HomePageState extends State<Root> {
       appBar: _appbars[_currentIndex],
       body: _body[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xFFA8FB71),
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorite',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favorite'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
