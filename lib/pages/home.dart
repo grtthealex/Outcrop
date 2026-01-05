@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:outcrop/models/product_card_model.dart';
+import 'package:outcrop/widgets/product_card_widget.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -43,8 +45,61 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+  // Dummy product list
+  final List<ProductCardModel> products = [
+    ProductCardModel(
+      imagePath: 'assets/rice.png',
+      name: 'Basmati Rice',
+      spec: '5% broken',
+      price: 50.0,
+    ),
+    ProductCardModel(
+      imagePath: 'assets/rice.png',
+      name: 'Glutinous Rice',
+      price: 45.0,
+    ),
+    ProductCardModel(
+      imagePath: 'assets/corn.png',
+      name: 'Yellow Corn',
+      spec: 'Medium',
+      price: 32.0,
+    ),
+  ];
+
+  // Set of favorite product names
+  final Set<String> _favorites = {};
+
+  // Toggle favorite
+  void _toggleFavorite(ProductCardModel product) {
+    setState(() {
+      if (_favorites.contains(product.name)) {
+        _favorites.remove(product.name);
+      } else {
+        _favorites.add(product.name);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: products.map((product) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: Align(
+              alignment: Alignment.center,
+              child: ProductCardWidget(
+                product: product,
+                isFavorite: _favorites.contains(product.name),
+                onFavoriteToggle: () => _toggleFavorite(product),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
   }
 }
