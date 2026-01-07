@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/product_card_model.dart';
+import 'package:outcrop/models/product_card_model.dart';
 
 class ProductCardWidget extends StatelessWidget {
   final ProductCardModel product;
@@ -17,8 +17,8 @@ class ProductCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 10, right: 10),
-      width: 350,
-      height: 180,
+      width: 400,
+      height: 130,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
         color: const Color.fromARGB(255, 194, 193, 193),
@@ -39,15 +39,6 @@ class ProductCardWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // Image
-              SizedBox(
-                width: 150,
-                height: 150,
-                child: Image.asset(product.imagePath),
-              ),
-
-              const SizedBox(width: 30),
-
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,

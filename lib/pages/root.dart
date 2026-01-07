@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:outcrop/data/data.dart';
 import 'package:outcrop/models/product_card_model.dart';
+import 'package:outcrop/pages/category.dart';
 import 'package:outcrop/pages/favourites.dart';
 import 'package:outcrop/pages/home.dart';
 import 'package:outcrop/pages/profile.dart';
@@ -8,31 +10,10 @@ class Root extends StatefulWidget {
   const Root({super.key});
 
   @override
-  State<Root> createState() => _HomePageState();
+  State<Root> createState() => _RootState();
 }
 
-class _HomePageState extends State<Root> {
-  final List<ProductCardModel> products = [
-    ProductCardModel(
-      imagePath: 'assets/rice.png',
-      name: 'Basmati Rice',
-      spec: '5% broken',
-      price: 50.0,
-    ),
-    ProductCardModel(
-      imagePath: 'assets/rice.png',
-      name: 'Glutinous Rice',
-      spec: '10% broken',
-      price: 45.0,
-    ),
-    ProductCardModel(
-      imagePath: 'assets/corn.png',
-      name: 'Yellow Corn',
-      spec: 'Medium',
-      price: 32.0,
-    ),
-  ];
-
+class _RootState extends State<Root> {
   final Set<String> _favorites = {};
 
   void _toggleFavorite(ProductCardModel product) {
@@ -51,12 +32,29 @@ class _HomePageState extends State<Root> {
     switch (_currentIndex) {
       case 0:
         return HomeBody(
+          key: ValueKey(_favorites.length),
+          categories: categoriesList,
           products: products,
           favorites: _favorites,
           onToggleFavorite: _toggleFavorite,
+          onCategoryTap: (String category) {
+            // Pass _favorites and toggle function to Category page
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CategoryPage(
+                  category: category,
+                  allProducts: products,
+                  favorites: _favorites,
+                  onToggleFavorite: _toggleFavorite,
+                ),
+              ),
+            ).then((_) => setState(() {})); // refresh on return
+          },
         );
       case 1:
         return FavouritesBody(
+          key: ValueKey(_favorites.length),
           products: products,
           favorites: _favorites,
           onToggleFavorite: _toggleFavorite,

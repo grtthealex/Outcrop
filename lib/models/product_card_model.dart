@@ -1,12 +1,13 @@
 class ProductCardModel {
-  final String imagePath;
   final String name;
   final String? spec;
   final double price;
+  final String category;
+
   ProductCardModel({
-    required this.imagePath,
     required this.name,
     this.spec,
     required this.price,
+    required this.category,
   });
 }

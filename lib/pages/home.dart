@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:outcrop/models/category_card_model.dart';
 import 'package:outcrop/models/product_card_model.dart';
+import 'package:outcrop/pages/category.dart';
+import 'package:outcrop/widgets/category_card_widget.dart';
 import 'package:outcrop/widgets/product_card_widget.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,80 +13,45 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Color(0xFF41E9C7),
-      title: SizedBox(
-        width: 250,
-        height: 40,
-        child: TextField(
-          textAlignVertical: TextAlignVertical.bottom,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-            hint: Text('Search'),
-            prefixIcon: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  Icon(Icons.search),
-                  SizedBox(width: 8),
-                  Text('|'),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
+      title: Text('Commodities'),
       centerTitle: true,
     );
   }
 }
 
 class HomeBody extends StatelessWidget {
+  final List<CategoryCardModel> categories;
   final List<ProductCardModel> products;
   final Set<String> favorites;
   final Function(ProductCardModel) onToggleFavorite;
+  final Function(String) onCategoryTap; // add this
 
   const HomeBody({
     super.key,
+    required this.categories,
     required this.products,
     required this.favorites,
     required this.onToggleFavorite,
+    required this.onCategoryTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    // return SingleChildScrollView(
-    //   padding: const EdgeInsets.all(30),
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.stretch,
-    //     children: products.map((product) {
-    //       return Padding(
-    //         padding: const EdgeInsets.only(bottom: 16),
-    //         child: ProductCardWidget(
-    //           product: product,
-    //           isFavorite: favorites.contains(product.name),
-    //           onFavoriteToggle: () => onToggleFavorite(product),
-    //         ),
-    //       );
-    //     }).toList(),
-    //   ),
-    // );
-    return ListView.builder(
+    return SingleChildScrollView(
       padding: const EdgeInsets.all(30),
-      itemCount: products.length,
-      itemBuilder: (context, index) {
-        final product = products[index];
-
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: Center(
-            child: ProductCardWidget(
-              product: product,
-              isFavorite: favorites.contains(product.name),
-              onFavoriteToggle: () => onToggleFavorite(product),
+      child: Column(
+        children: categories.map((category) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: Center(
+              child: GestureDetector(
+                onTap: () => onCategoryTap(category.name),
+                child: CategoryCardWidget(category: category),
+              ),
             ),
-          ),
-        );
-      },
+          );
+        }).toList(),
+      ),
     );
   }
 }
