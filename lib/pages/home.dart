@@ -37,69 +37,53 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class HomeBody extends StatefulWidget {
-  const HomeBody({super.key});
+class HomeBody extends StatelessWidget {
+  final List<ProductCardModel> products;
+  final Set<String> favorites;
+  final Function(ProductCardModel) onToggleFavorite;
 
-  @override
-  State<HomeBody> createState() => _HomeBodyState();
-}
-
-class _HomeBodyState extends State<HomeBody> {
-  // Dummy product list
-  final List<ProductCardModel> products = [
-    ProductCardModel(
-      imagePath: 'assets/rice.png',
-      name: 'Basmati Rice',
-      spec: '5% broken',
-      price: 50.0,
-    ),
-    ProductCardModel(
-      imagePath: 'assets/rice.png',
-      name: 'Glutinous Rice',
-      price: 45.0,
-    ),
-    ProductCardModel(
-      imagePath: 'assets/corn.png',
-      name: 'Yellow Corn',
-      spec: 'Medium',
-      price: 32.0,
-    ),
-  ];
-
-  // Set of favorite product names
-  final Set<String> _favorites = {};
-
-  // Toggle favorite
-  void _toggleFavorite(ProductCardModel product) {
-    setState(() {
-      if (_favorites.contains(product.name)) {
-        _favorites.remove(product.name);
-      } else {
-        _favorites.add(product.name);
-      }
-    });
-  }
+  const HomeBody({
+    super.key,
+    required this.products,
+    required this.favorites,
+    required this.onToggleFavorite,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    // return SingleChildScrollView(
+    //   padding: const EdgeInsets.all(30),
+    //   child: Column(
+    //     crossAxisAlignment: CrossAxisAlignment.stretch,
+    //     children: products.map((product) {
+    //       return Padding(
+    //         padding: const EdgeInsets.only(bottom: 16),
+    //         child: ProductCardWidget(
+    //           product: product,
+    //           isFavorite: favorites.contains(product.name),
+    //           onFavoriteToggle: () => onToggleFavorite(product),
+    //         ),
+    //       );
+    //     }).toList(),
+    //   ),
+    // );
+    return ListView.builder(
       padding: const EdgeInsets.all(30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: products.map((product) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: Align(
-              alignment: Alignment.center,
-              child: ProductCardWidget(
-                product: product,
-                isFavorite: _favorites.contains(product.name),
-                onFavoriteToggle: () => _toggleFavorite(product),
-              ),
+      itemCount: products.length,
+      itemBuilder: (context, index) {
+        final product = products[index];
+
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 16),
+          child: Center(
+            child: ProductCardWidget(
+              product: product,
+              isFavorite: favorites.contains(product.name),
+              onFavoriteToggle: () => onToggleFavorite(product),
             ),
-          );
-        }).toList(),
-      ),
+          ),
+        );
+      },
     );
   }
 }

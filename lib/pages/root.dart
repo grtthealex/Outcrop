@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:outcrop/models/product_card_model.dart';
 import 'package:outcrop/pages/favourites.dart';
 import 'package:outcrop/pages/home.dart';
 import 'package:outcrop/pages/profile.dart';
@@ -11,9 +12,60 @@ class Root extends StatefulWidget {
 }
 
 class _HomePageState extends State<Root> {
+  final List<ProductCardModel> products = [
+    ProductCardModel(
+      imagePath: 'assets/rice.png',
+      name: 'Basmati Rice',
+      spec: '5% broken',
+      price: 50.0,
+    ),
+    ProductCardModel(
+      imagePath: 'assets/rice.png',
+      name: 'Glutinous Rice',
+      spec: '10% broken',
+      price: 45.0,
+    ),
+    ProductCardModel(
+      imagePath: 'assets/corn.png',
+      name: 'Yellow Corn',
+      spec: 'Medium',
+      price: 32.0,
+    ),
+  ];
+
+  final Set<String> _favorites = {};
+
+  void _toggleFavorite(ProductCardModel product) {
+    setState(() {
+      if (_favorites.contains(product.name)) {
+        _favorites.remove(product.name);
+      } else {
+        _favorites.add(product.name);
+      }
+    });
+  }
+
   int _currentIndex = 0;
 
-  final List<Widget> _body = [HomeBody(), FavouritesBody(), ProfileBody()];
+  Widget _body() {
+    switch (_currentIndex) {
+      case 0:
+        return HomeBody(
+          products: products,
+          favorites: _favorites,
+          onToggleFavorite: _toggleFavorite,
+        );
+      case 1:
+        return FavouritesBody(
+          products: products,
+          favorites: _favorites,
+          onToggleFavorite: _toggleFavorite,
+        );
+      case 2:
+      default:
+        return const ProfileBody();
+    }
+  }
 
   final List<PreferredSizeWidget> _appbars = [
     HomeAppBar(),
@@ -25,7 +77,7 @@ class _HomePageState extends State<Root> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbars[_currentIndex],
-      body: _body[_currentIndex],
+      body: _body(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color(0xFFA8FB71),
         currentIndex: _currentIndex,
