@@ -22,10 +22,10 @@ class ProductCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Color(0xFFA8FB71).withAlpha(50), // Shadow color
+            color: Color(0xFFA8FB71).withAlpha(50),
             offset: const Offset(0, 4),
-            blurRadius: 8, // Shadow blur radius
-            spreadRadius: 1, // Shadow spread radius (optional)
+            blurRadius: 8, 
+            spreadRadius: 1,
           ),
         ],
         borderRadius: BorderRadius.circular(12),
@@ -66,7 +66,7 @@ class ProductCardWidget extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.only(left: 8, right: 8),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.white70,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
@@ -84,7 +84,7 @@ class ProductCardWidget extends StatelessWidget {
                 constraints: BoxConstraints(maxWidth: 200),
                 padding: EdgeInsets.only(left: 14, right: 10),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.white70,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -99,7 +99,7 @@ class ProductCardWidget extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 8, right: 8),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.white70,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(

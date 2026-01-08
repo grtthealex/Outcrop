@@ -82,7 +82,7 @@ Future<void> _login() async {
                 children: [
                   // Outcrop logo
                   SizedBox(
-                    width: 160,
+                    width: 180,
                     height: 50,
                     child: Row(
                       children: [
@@ -91,7 +91,7 @@ Future<void> _login() async {
                           height: 40, 
                         ),
                         SizedBox(width: 5),
-                        Text('Outcrop', style: TextStyle(fontSize: 30)),
+                        Text('OutCrop', style: TextStyle(fontSize: 30)),
                       ],
                     ),
                   ),
