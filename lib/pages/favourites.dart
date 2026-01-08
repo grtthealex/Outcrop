@@ -9,6 +9,10 @@ class FavouritesAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: Container(
+        margin: EdgeInsets.all(10),
+        child: Image.asset('assets/images/OutCrop_Logo.png'),
+      ),
       backgroundColor: Color(0xFF41E9C7),
       title: Row(
         mainAxisSize: MainAxisSize.min,

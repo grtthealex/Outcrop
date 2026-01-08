@@ -36,6 +36,7 @@ class _CategoryPageState extends State<CategoryPage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF41E9C7),
         title: Text(widget.category),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),

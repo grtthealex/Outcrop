@@ -4,8 +4,8 @@ import re
 from pathlib import Path
 
 # ---------------- CONFIG ----------------
-pdf_path = "01-01-26.pdf"
-output_json = Path(pdf_path).stem + ".json"
+pdf_path = "pdfs/2026-01-04.pdf"
+output_json = "jsons/" + Path(pdf_path).stem + ".json"
 
 products = []
 current_category = None
