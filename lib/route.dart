@@ -37,7 +37,7 @@ final GoRouter appRouter = GoRouter(
       path: '/',
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
-        return user != null ? '/home' : '/login';
+        return user != null ? '/root' : '/login';
       },
     ),
 
@@ -47,7 +47,7 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const LoginPage(),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
-        return user != null ? '/home' : null; // redirect if already logged in
+        return user != null ? '/root' : null; // redirect if already logged in
       },
     ),
 
@@ -57,13 +57,13 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const SignupPage(),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
-        return user != null ? '/home' : null; // redirect if already logged in
+        return user != null ? '/root' : null; // redirect if already logged in
       },
     ),
 
     // Home page (Root)
     GoRoute(
-      path: '/home',
+      path: '/root',
       builder: (context, state) => const Root(),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;

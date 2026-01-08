@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
 
       // Success → navigate to Home
-      context.go('/home');
+      context.go('/root');
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(
         context,
@@ -56,99 +56,124 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              // Outcrop logo
-              Text('Outcrop', style: TextStyle(fontSize: 30)),
-              SizedBox(height: 40),
-              Text('Login', style: TextStyle(fontSize: 30)),
-              SizedBox(height: 32),
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/images/design.png', // your bg image
+              fit: BoxFit.cover, // cover the whole area
+            ),
+          ),
 
-              // Email field
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                  ),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-              ),
-              const SizedBox(height: 16),
-
-              // Password field
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  controller: passwordController,
-                  obscureText: _obscurePassword,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // Login button
-              SizedBox(
-                width: 100,
-                child: ElevatedButton(
-                  onPressed: _loading ? null : _login,
-                  child: _loading
-                      ? const CircularProgressIndicator(color: Colors.white)
-                      : const Text('Login'),
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // "Don't have an account?" link
-              Row(
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account? "),
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () {
-                        context.go('/signup'); // navigate to Signup
-                      },
-                      child: const Text(
-                        "Sign up",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
+                  // Outcrop logo
+                  SizedBox(
+                    width: 160, // enough for image + text
+                    height: 50,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/OutCrop_Logo.png',
+                          height: 40, // scale down image to fit
+                        ),
+                        SizedBox(width: 5), // spacing between image and text
+                        Text('Outcrop', style: TextStyle(fontSize: 30)),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 50),
+                  Text('Login', style: TextStyle(fontSize: 30)),
+                  SizedBox(height: 32),
+
+                  // Email field
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Password field
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      controller: passwordController,
+                      obscureText: _obscurePassword,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: const OutlineInputBorder(),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
                         ),
                       ),
                     ),
                   ),
+                  const SizedBox(height: 24),
+
+                  // Login button
+                  SizedBox(
+                    width: 100,
+                    child: ElevatedButton(
+                      onPressed: _loading ? null : _login,
+                      child: _loading
+                          ? const CircularProgressIndicator(color: Colors.white)
+                          : const Text('Login'),
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // "Don't have an account?" link
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Don't have an account? "),
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.go('/signup'); // navigate to Signup
+                          },
+                          child: const Text(
+                            "Sign up",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

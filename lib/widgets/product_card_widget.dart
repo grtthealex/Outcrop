@@ -21,7 +21,8 @@ class ProductCardWidget extends StatelessWidget {
       height: 130,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
-        color: const Color.fromARGB(255, 194, 193, 193),
+        borderRadius: BorderRadius.circular(12),
+        color: Color.fromARGB(255, 175, 239, 133),
       ),
       child: Stack(
         children: [
@@ -30,59 +31,58 @@ class ProductCardWidget extends StatelessWidget {
             right: 0,
             child: IconButton(
               icon: Icon(
+                size: 30,
                 isFavorite ? Icons.star : Icons.star_border,
                 color: Colors.yellow,
               ),
               onPressed: onFavoriteToggle,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+          Positioned(
+            right: 0,
+            bottom: 10,
+            child: Container(
+              padding: EdgeInsets.only(left: 8, right: 8),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Text(
+                '₱${product.price.toStringAsFixed(2)}',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Name
-                  Container(
-                    padding: EdgeInsets.only(left: 8, right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Text(
-                      product.name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
+              // Name
+              Container(
+                constraints: BoxConstraints(maxWidth: 200),
+                padding: EdgeInsets.only(left: 14, right: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  product.name,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              ),
 
-                  SizedBox(height: 20),
+              SizedBox(height: 20),
 
-                  // Specification
-                  Container(
-                    padding: EdgeInsets.only(left: 8, right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Text(
-                      product.spec != null && product.spec!.isNotEmpty
-                          ? product.spec!
-                          : 'N/A',
-                    ),
-                  ),
-
-                  SizedBox(height: 20),
-
-                  Container(
-                    padding: EdgeInsets.only(left: 8, right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Text('₱${product.price.toStringAsFixed(2)}'),
-                  ),
-                ],
+              // Specification
+              Container(
+                padding: EdgeInsets.only(left: 8, right: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  'Spec: ${product.spec != null && product.spec!.isNotEmpty ? product.spec! : 'N/A'}',
+                ),
               ),
             ],
           ),

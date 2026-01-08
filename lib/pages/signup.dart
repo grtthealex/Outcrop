@@ -48,7 +48,7 @@ class _SignupPageState extends State<SignupPage> {
       );
 
       // Success → navigate to Home
-      context.go('/home');
+      context.go('/root');
     } on FirebaseAuthException catch (e) {
       // Show error to user
       ScaffoldMessenger.of(
@@ -62,100 +62,98 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Username field
-              // SizedBox(
-              //   width: 300,
-              //   child: TextField(
-              //     controller: usernameController,
-              //     decoration: const InputDecoration(
-              //       labelText: 'Username',
-              //       border: OutlineInputBorder(),
-              //     ),
-              //   ),
-              // ),
-              // const SizedBox(height: 16),
-              Text('Signup', style: TextStyle(fontSize: 30)),
-              SizedBox(height: 50),
-
-              // Email field
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                  ),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-              ),
-              const SizedBox(height: 16),
-
-              // Password field
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  controller: passwordController,
-                  obscureText: _obscurePassword,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // Signup button
-              SizedBox(
-                width: 165,
-                child: ElevatedButton(
-                  onPressed: _loading ? null : _signup,
-                  child: _loading
-                      ? const CircularProgressIndicator(color: Colors.white)
-                      : const Text('Create Account'),
-                ),
-              ),
-
-              SizedBox(height: 16),
-              Row(
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/images/design.png', // your bg image
+              fit: BoxFit.cover, // cover the whole area
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Already have an account? "),
-                  GestureDetector(
-                    onTap: () {
-                      context.go('/login'); // navigate to your Login page
-                    },
-                    child: const Text(
-                      "Log in",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
+                  Text('Signup', style: TextStyle(fontSize: 30)),
+                  SizedBox(height: 50),
+
+                  // Email field
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Password field
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      controller: passwordController,
+                      obscureText: _obscurePassword,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: const OutlineInputBorder(),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
+                        ),
                       ),
                     ),
+                  ),
+                  const SizedBox(height: 24),
+
+                  // Signup button
+                  SizedBox(
+                    width: 165,
+                    child: ElevatedButton(
+                      onPressed: _loading ? null : _signup,
+                      child: _loading
+                          ? const CircularProgressIndicator(color: Colors.white)
+                          : const Text('Create Account'),
+                    ),
+                  ),
+
+                  SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Already have an account? "),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/login'); // navigate to your Login page
+                        },
+                        child: const Text(
+                          "Log in",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
