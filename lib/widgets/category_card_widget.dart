@@ -52,6 +52,5 @@ class CategoryCardWidget extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

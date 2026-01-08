@@ -43,13 +43,19 @@ class _LoginPageState extends State<LoginPage> {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
 
       // Success → navigate to Home
-      context.go('/root');
+      if (mounted) {
+        context.go('/root');
+      }
     } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(e.message ?? 'Login failed')));
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.message ?? 'Login failed')));
+      }
     } finally {
-      setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
@@ -75,16 +81,16 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   // Outcrop logo
                   SizedBox(
-                    width: 160, // enough for image + text
+                    width: 180,
                     height: 50,
                     child: Row(
                       children: [
                         Image.asset(
                           'assets/images/OutCrop_Logo.png',
-                          height: 40, // scale down image to fit
+                          height: 40,
                         ),
-                        SizedBox(width: 5), // spacing between image and text
-                        Text('Outcrop', style: TextStyle(fontSize: 30)),
+                        SizedBox(width: 5),
+                        Text('OutCrop', style: TextStyle(fontSize: 30)),
                       ],
                     ),
                   ),

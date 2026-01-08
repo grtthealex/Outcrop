@@ -11,11 +11,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(3),
         child: Image.asset('assets/images/OutCrop_Logo.png'),
       ),
-      backgroundColor: Color(0xFF41E9C7),
-      title: Text('Commodities'),
+      backgroundColor: Color(0xFF5ce1e6),
+      title: Text('Categories'),
       centerTitle: true,
     );
   }
@@ -26,7 +26,7 @@ class HomeBody extends StatelessWidget {
   final List<ProductCardModel> products;
   final Set<String> favorites;
   final Function(ProductCardModel) onToggleFavorite;
-  final Function(String) onCategoryTap; // add this
+  final Function(String, String imagePath) onCategoryTap;
 
   const HomeBody({
     super.key,
@@ -47,7 +47,7 @@ class HomeBody extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: Center(
               child: GestureDetector(
-                onTap: () => onCategoryTap(category.name),
+                onTap: () => onCategoryTap(category.name, category.imagePath),
                 child: CategoryCardWidget(category: category),
               ),
             ),

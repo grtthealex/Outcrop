@@ -9,6 +9,7 @@ final List<CategoryCardModel> categoriesList = [
     imagePath: 'assets/images/rice.jpg',
     name: 'LOCAL COMMERCIAL RICE',
   ),
+
   CategoryCardModel(imagePath: 'assets/images/corn.png', name: 'CORN PRODUCTS'),
   CategoryCardModel(imagePath: 'assets/images/legumes.jpg', name: 'LEGUMES'),
   CategoryCardModel(imagePath: 'assets/images/fish.png', name: 'FISH PRODUCTS'),

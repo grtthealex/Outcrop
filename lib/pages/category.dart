@@ -7,6 +7,7 @@ class CategoryPage extends StatefulWidget {
   final List<ProductCardModel> allProducts;
   final Set<String> favorites;
   final Function(ProductCardModel) onToggleFavorite;
+  final String imagePath;
 
   const CategoryPage({
     super.key,
@@ -14,6 +15,7 @@ class CategoryPage extends StatefulWidget {
     required this.allProducts,
     required this.favorites,
     required this.onToggleFavorite,
+    required this.imagePath,
   });
 
   @override
@@ -36,7 +38,7 @@ class _CategoryPageState extends State<CategoryPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF41E9C7),
+        backgroundColor: const Color(0xFF5ce1e6),
         title: Text(widget.category),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),
@@ -51,32 +53,52 @@ class _CategoryPageState extends State<CategoryPage> {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 filled: true,
-                fillColor: Colors.white,
+                fillColor: Color.fromARGB(255, 232, 249, 246),
               ),
             ),
           ),
         ),
       ),
-      body: categoryProducts.isEmpty
-          ? const Center(child: Text('No products found'))
-          : ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: categoryProducts.length,
-              itemBuilder: (_, index) {
-                final product = categoryProducts[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: ProductCardWidget(
-                    product: product,
-                    isFavorite: widget.favorites.contains(product.name),
-                    onFavoriteToggle: () {
-                      widget.onToggleFavorite(product);
-                      setState(() {});
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: SizedBox(
+                height: 120,
+                width: double.infinity,
+                child: ClipRect(
+                  child: Image.asset(widget.imagePath, fit: BoxFit.cover),
+                ),
+              ),
+            ),
+            categoryProducts.isEmpty
+                ? const Center(child: Text('No products found'))
+                : ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(16),
+                    itemCount: categoryProducts.length,
+                    itemBuilder: (_, index) {
+                      final product = categoryProducts[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: ProductCardWidget(
+                          product: product,
+                          isFavorite: widget.favorites.contains(product.name),
+                          onFavoriteToggle: () {
+                            widget.onToggleFavorite(product);
+                            setState(() {});
+                          },
+                        ),
+                      );
                     },
                   ),
-                );
-              },
-            ),
+          ],
+        ),
+      ),
     );
   }
 }

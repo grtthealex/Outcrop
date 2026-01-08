@@ -77,7 +77,7 @@ class _RootState extends State<Root> {
             products: products,
             favorites: _favorites,
             onToggleFavorite: _toggleFavorite,
-            onCategoryTap: (category) {
+            onCategoryTap: (category, imagePath) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -86,6 +86,7 @@ class _RootState extends State<Root> {
                     allProducts: products,
                     favorites: _favorites,
                     onToggleFavorite: _toggleFavorite,
+                    imagePath: imagePath,
                   ),
                 ),
               );

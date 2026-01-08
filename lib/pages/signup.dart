@@ -48,14 +48,20 @@ class _SignupPageState extends State<SignupPage> {
       );
 
       // Success → navigate to Home
-      context.go('/root');
+      if (mounted) {
+        context.go('/root');
+      }
     } on FirebaseAuthException catch (e) {
       // Show error to user
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(e.message ?? 'Signup failed')));
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.message ?? 'Signup failed')));
+      }
     } finally {
-      setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
@@ -65,10 +71,7 @@ class _SignupPageState extends State<SignupPage> {
       body: Stack(
         children: [
           SizedBox.expand(
-            child: Image.asset(
-              'assets/images/design.png', // your bg image
-              fit: BoxFit.cover, // cover the whole area
-            ),
+            child: Image.asset('assets/images/design.png', fit: BoxFit.cover),
           ),
           Center(
             child: Padding(
@@ -137,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                       const Text("Already have an account? "),
                       GestureDetector(
                         onTap: () {
-                          context.go('/login'); // navigate to your Login page
+                          context.go('/login');
                         },
                         child: const Text(
                           "Log in",

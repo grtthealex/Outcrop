@@ -11,10 +11,10 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(3),
         child: Image.asset('assets/images/OutCrop_Logo.png'),
       ),
-      backgroundColor: const Color(0xFF41E9C7),
+      backgroundColor: const Color(0xFF5ce1e6),
       title: const Text('Settings'),
       centerTitle: true,
     );

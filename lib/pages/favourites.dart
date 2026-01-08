@@ -10,14 +10,23 @@ class FavouritesAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(3),
         child: Image.asset('assets/images/OutCrop_Logo.png'),
       ),
-      backgroundColor: Color(0xFF41E9C7),
+      backgroundColor: Color(0xFF5ce1e6),
       title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.star, color: Colors.yellow),
+          Stack(
+            children: [
+              Icon(Icons.star, size: 25, color: Colors.yellow),
+              Icon(
+                Icons.star_border,
+                size: 25,
+                color: const Color.fromARGB(223, 210, 189, 33),
+              ),
+            ],
+          ),
           Text('Favourites'),
         ],
       ),
