@@ -1,0 +1,187 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:go_router/go_router.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool _loading = false;
+  bool _obscurePassword = true; // for eye toggle
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+Future<void> _login() async {
+  setState(() => _loading = true);
+
+  try {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      throw FirebaseAuthException(
+        code: "empty-fields",
+        message: "Please enter both email and password",
+      );
+    }
+
+    // Sign in with FirebaseAuth
+    await _auth.signInWithEmailAndPassword(email: email, password: password);
+
+    // Success → navigate to Home
+    if (mounted) {
+      context.go('/root');
+    }
+  } on FirebaseAuthException catch (e) {
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? 'Login failed')),
+      );
+    }
+  } finally {
+    if (mounted) {
+      setState(() => _loading = false);
+    }
+  }
+}
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/images/design.png', // your bg image
+              fit: BoxFit.cover, // cover the whole area
+            ),
+          ),
+
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Outcrop logo
+                  SizedBox(
+                    width: 160,
+                    height: 50,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/OutCrop_Logo.png',
+                          height: 40, 
+                        ),
+                        SizedBox(width: 5),
+                        Text('Outcrop', style: TextStyle(fontSize: 30)),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 50),
+                  Text('Login', style: TextStyle(fontSize: 30)),
+                  SizedBox(height: 32),
+
+                  // Email field
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Password field
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      controller: passwordController,
+                      obscureText: _obscurePassword,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: const OutlineInputBorder(),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscurePassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscurePassword = !_obscurePassword;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+
+                  // Login button
+                  SizedBox(
+                    width: 100,
+                    child: ElevatedButton(
+                      onPressed: _loading ? null : _login,
+                      child: _loading
+                          ? const CircularProgressIndicator(color: Colors.white)
+                          : const Text('Login'),
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // "Don't have an account?" link
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Don't have an account? "),
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.go('/signup'); // navigate to Signup
+                          },
+                          child: const Text(
+                            "Sign up",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

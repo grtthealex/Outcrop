@@ -1,0 +1,1148 @@
+[
+  {
+    "category": "National Capital Region (NCR)",
+    "name": "(Thursday, January",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Basmati Rice",
+    "spec": "N/A",
+    "price": 205.0
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Glutinous Rice",
+    "spec": "N/A",
+    "price": 60.54
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Jasponica/Japonica Rice",
+    "spec": "N/A",
+    "price": 60.37
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Other Special Rice White Rice",
+    "spec": "N/A",
+    "price": 59.96
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Premium",
+    "spec": "N/A",
+    "price": 5.0
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Well Milled",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "IMPORTED COMMERCIAL RICE",
+    "name": "Regular Milled",
+    "spec": "N/A",
+    "price": 20.0
+  },
+  {
+    "category": "LOCAL COMMERCIAL RICE",
+    "name": "Glutinous Rice",
+    "spec": "N/A",
+    "price": 73.56
+  },
+  {
+    "category": "LOCAL COMMERCIAL RICE",
+    "name": "Other Special Rice White Rice",
+    "spec": "N/A",
+    "price": 57.74
+  },
+  {
+    "category": "LOCAL COMMERCIAL RICE",
+    "name": "Premium",
+    "spec": "N/A",
+    "price": 5.0
+  },
+  {
+    "category": "LOCAL COMMERCIAL RICE",
+    "name": "Well Milled",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "LOCAL COMMERCIAL RICE",
+    "name": "Regular Milled",
+    "spec": "N/A",
+    "price": 20.0
+  },
+  {
+    "category": "CORN PRODUCTS",
+    "name": "Corn (White) Cob, Glutinous",
+    "spec": "N/A",
+    "price": 90.0
+  },
+  {
+    "category": "CORN PRODUCTS",
+    "name": "Corn (Yellow) Cob, Sweet Corn",
+    "spec": "N/A",
+    "price": 90.0
+  },
+  {
+    "category": "CORN PRODUCTS",
+    "name": "Corn Grits (White, Food Grade)",
+    "spec": "N/A",
+    "price": 120.0
+  },
+  {
+    "category": "CORN PRODUCTS",
+    "name": "Corn Grits (Yellow, Food Grade)",
+    "spec": "N/A",
+    "price": 120.0
+  },
+  {
+    "category": "CORN PRODUCTS",
+    "name": "Corn Cracked (Yellow, Feed Grade)",
+    "spec": "N/A",
+    "price": 50.0
+  },
+  {
+    "category": "CORN PRODUCTS",
+    "name": "Corn Grits (Feed Grade)",
+    "spec": "N/A",
+    "price": 46.67
+  },
+  {
+    "category": "LEGUMES",
+    "name": "Mungbean",
+    "spec": "N/A",
+    "price": 128.07
+  },
+  {
+    "category": "FISH PRODUCTS",
+    "name": "Alumahan (Indian Mackerel) Medium (",
+    "spec": "N/A",
+    "price": 4.0
+  },
+  {
+    "category": "FISH PRODUCTS",
+    "name": "Bangus, Large Large (",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "FISH PRODUCTS",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Bangus, Medium Medium (",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "Bonito (Frigate Tuna) n/a",
+    "name": "Galunggong, Local Male, Medium (",
+    "spec": "N/A",
+    "price": 12.0
+  },
+  {
+    "category": "Bonito (Frigate Tuna) n/a",
+    "name": "Galunggong, Imported Male, Medium (",
+    "spec": "N/A",
+    "price": 12.0
+  },
+  {
+    "category": "Mackerel, Imported Frozen, Whole Round",
+    "name": "Pampano, Local",
+    "spec": "N/A",
+    "price": 508.67
+  },
+  {
+    "category": "Mackerel, Imported Frozen, Whole Round",
+    "name": "Pampano, Imported",
+    "spec": "N/A",
+    "price": 409.8
+  },
+  {
+    "category": "Salmon Belly, Local n/a",
+    "name": "Salmon Belly, Imported",
+    "spec": "N/A",
+    "price": 436.1
+  },
+  {
+    "category": "Salmon Head, Local n/a",
+    "name": "Salmon Head, Imported",
+    "spec": "N/A",
+    "price": 234.56
+  },
+  {
+    "category": "Salmon Head, Local n/a",
+    "name": "Sardines (Tamban)",
+    "spec": "N/A",
+    "price": 157.0
+  },
+  {
+    "category": "Salmon Head, Local n/a",
+    "name": "Squid (Pusit Bisaya), Local Medium",
+    "spec": "N/A",
+    "price": 509.51
+  },
+  {
+    "category": "Salmon Head, Local n/a",
+    "name": "Squid, Imported",
+    "spec": "N/A",
+    "price": 226.67
+  },
+  {
+    "category": "Tambakol (Yellow-Fin Tuna),",
+    "name": "Medium, Fresh or Chilled",
+    "spec": "N/A",
+    "price": 295.37
+  },
+  {
+    "category": "Imported",
+    "name": "Tilapia Medium (",
+    "spec": "N/A",
+    "price": 5.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Brisket, Local Meat with Bones",
+    "spec": "N/A",
+    "price": 432.55
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Brisket, Imported",
+    "spec": "N/A",
+    "price": 380.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Chuck, Local",
+    "spec": "N/A",
+    "price": 430.4
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Chuck, Imported",
+    "spec": "N/A",
+    "price": 380.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Forequarter, Local",
+    "spec": "N/A",
+    "price": 490.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Forequarter, Imported",
+    "spec": "N/A",
+    "price": 360.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Fore Limb, Local",
+    "spec": "N/A",
+    "price": 459.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Fore Limb, Imported",
+    "spec": "N/A",
+    "price": 200.0
+  },
+  {
+    "category": "BEEF MEAT PRODUCTS",
+    "name": "Beef Flank, Local",
+    "spec": "N/A",
+    "price": 461.11
+  },
+  {
+    "category": "Beef Flank, Imported n/a",
+    "name": "Beef Loin, Local",
+    "spec": "N/A",
+    "price": 606.67
+  },
+  {
+    "category": "Beef Flank, Imported n/a",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 2.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Beef Loin, Imported",
+    "spec": "N/A",
+    "price": 280.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Beef Plate, Local",
+    "spec": "N/A",
+    "price": 431.82
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Beef Plate, Imported",
+    "spec": "N/A",
+    "price": 150.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Beef Rib Eye, Local",
+    "spec": "N/A",
+    "price": 477.14
+  },
+  {
+    "category": "Beef Rib Eye, Imported n/a",
+    "name": "Beef Rib Set, Local",
+    "spec": "N/A",
+    "price": 437.78
+  },
+  {
+    "category": "Beef Rib Set, Imported n/a",
+    "name": "Beef Rump, Local Lean Meat/ Tapadera",
+    "spec": "N/A",
+    "price": 491.36
+  },
+  {
+    "category": "Beef Rib Set, Imported n/a",
+    "name": "Beef Rump, Imported",
+    "spec": "N/A",
+    "price": 375.0
+  },
+  {
+    "category": "Beef Rib Set, Imported n/a",
+    "name": "Beef Short Ribs, Local",
+    "spec": "N/A",
+    "price": 451.79
+  },
+  {
+    "category": "Beef Short Ribs, Imported n/a",
+    "name": "Beef Sirloin, Local",
+    "spec": "N/A",
+    "price": 494.27
+  },
+  {
+    "category": "Beef Sirloin, Imported n/a",
+    "name": "Beef Striploin, Local",
+    "spec": "N/A",
+    "price": 491.76
+  },
+  {
+    "category": "Beef Striploin, Imported n/a",
+    "name": "Beef Tenderloin, Local",
+    "spec": "N/A",
+    "price": 694.0
+  },
+  {
+    "category": "Beef Tenderloin, Imported n/a",
+    "name": "Beef Tongue, Local",
+    "spec": "N/A",
+    "price": 650.0
+  },
+  {
+    "category": "PORK MEAT PRODUCTS",
+    "name": "Pork Belly (Liempo), Local",
+    "spec": "N/A",
+    "price": 396.2
+  },
+  {
+    "category": "PORK MEAT PRODUCTS",
+    "name": "Pork Belly (Liempo), Imported",
+    "spec": "N/A",
+    "price": 314.52
+  },
+  {
+    "category": "PORK MEAT PRODUCTS",
+    "name": "Pork Boston Shoulder, Local",
+    "spec": "N/A",
+    "price": 353.67
+  },
+  {
+    "category": "Pork Boston Shoulder, Imported n/a",
+    "name": "Pork Chop, Local",
+    "spec": "N/A",
+    "price": 344.13
+  },
+  {
+    "category": "Pork Boston Shoulder, Imported n/a",
+    "name": "Pork Chop, Imported",
+    "spec": "N/A",
+    "price": 259.33
+  },
+  {
+    "category": "Pork Boston Shoulder, Imported n/a",
+    "name": "Pork Fore Shank, Local",
+    "spec": "N/A",
+    "price": 325.11
+  },
+  {
+    "category": "Pork Boston Shoulder, Imported n/a",
+    "name": "Pork Fore Shank, Imported",
+    "spec": "N/A",
+    "price": 226.67
+  },
+  {
+    "category": "Pork Boston Shoulder, Imported n/a",
+    "name": "Pork Head, Local",
+    "spec": "N/A",
+    "price": 263.28
+  },
+  {
+    "category": "Pork Head, Imported n/a",
+    "name": "Pork Hind Leg (Pigue), Local",
+    "spec": "N/A",
+    "price": 343.86
+  },
+  {
+    "category": "Pork Head, Imported n/a",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Pork Hind Leg (Pigue), Imported",
+    "spec": "N/A",
+    "price": 262.5
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Pork Hind Shank, Local",
+    "spec": "N/A",
+    "price": 330.92
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Pork Hind Shank, Imported",
+    "spec": "N/A",
+    "price": 220.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Pork Loin, Local",
+    "spec": "N/A",
+    "price": 386.4
+  },
+  {
+    "category": "Pork Loin, Imported n/a",
+    "name": "Pork Offals, Local",
+    "spec": "N/A",
+    "price": 272.5
+  },
+  {
+    "category": "Pork Loin, Imported n/a",
+    "name": "Pork Offals, Imported",
+    "spec": "N/A",
+    "price": 153.0
+  },
+  {
+    "category": "Pork Picnic Shoulder (Kasim),",
+    "name": "",
+    "spec": "N/A",
+    "price": 343.86
+  },
+  {
+    "category": "Pork Picnic Shoulder (Kasim),",
+    "name": "",
+    "spec": "N/A",
+    "price": 262.29
+  },
+  {
+    "category": "Imported",
+    "name": "Pork Rind/Skin, Local",
+    "spec": "N/A",
+    "price": 107.27
+  },
+  {
+    "category": "Pork Rind/Skin, Imported n/a",
+    "name": "Pork Spare Ribs, Local",
+    "spec": "N/A",
+    "price": 337.0
+  },
+  {
+    "category": "Pork Rind/Skin, Imported n/a",
+    "name": "Pork Spare Ribs, Imported",
+    "spec": "N/A",
+    "price": 230.0
+  },
+  {
+    "category": "Carabeef Forequarter, Imported",
+    "name": "Carabeef Meat, Local",
+    "spec": "N/A",
+    "price": 400.0
+  },
+  {
+    "category": "POULTRY PRODUCTS",
+    "name": "Chicken Breast, Local Magnolia",
+    "spec": "N/A",
+    "price": 219.14
+  },
+  {
+    "category": "POULTRY PRODUCTS",
+    "name": "Chicken Breast, Local Bounty Fresh",
+    "spec": "N/A",
+    "price": 232.5
+  },
+  {
+    "category": "POULTRY PRODUCTS",
+    "name": "Chicken Breast, Local Unbranded, Fresh",
+    "spec": "N/A",
+    "price": 209.85
+  },
+  {
+    "category": "Chicken Breast, Imported n/a",
+    "name": "Chicken Drumstick, Local Magnolia",
+    "spec": "N/A",
+    "price": 222.0
+  },
+  {
+    "category": "Chicken Breast, Imported n/a",
+    "name": "Chicken Drumstick, Local Bounty Fresh",
+    "spec": "N/A",
+    "price": 235.0
+  },
+  {
+    "category": "Chicken Breast, Imported n/a",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 4.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Chicken Drumstick, Local Unbranded, Fresh",
+    "spec": "N/A",
+    "price": 215.0
+  },
+  {
+    "category": "Chicken Drumstick, Imported n/a",
+    "name": "Chicken Feet, Local",
+    "spec": "N/A",
+    "price": 148.12
+  },
+  {
+    "category": "Chicken Feet, Imported n/a",
+    "name": "Chicken Leg Quarter Magnolia",
+    "spec": "N/A",
+    "price": 222.0
+  },
+  {
+    "category": "Chicken Feet, Imported n/a",
+    "name": "Chicken Leg Quarter Bounty Fresh",
+    "spec": "N/A",
+    "price": 232.5
+  },
+  {
+    "category": "Chicken Feet, Imported n/a",
+    "name": "Chicken Leg Quarter Unbranded, Fresh",
+    "spec": "N/A",
+    "price": 210.88
+  },
+  {
+    "category": "Chicken Feet, Imported n/a",
+    "name": "Chicken Leg Quarter, Imported",
+    "spec": "N/A",
+    "price": 165.0
+  },
+  {
+    "category": "Chicken Feet, Imported n/a",
+    "name": "Chicken Liver, Local",
+    "spec": "N/A",
+    "price": 235.65
+  },
+  {
+    "category": "Chicken Liver, Imported n/a",
+    "name": "Chicken Neck, Local",
+    "spec": "N/A",
+    "price": 143.97
+  },
+  {
+    "category": "Chicken Neck, Imported n/a",
+    "name": "Chicken Rind/Skin, Local",
+    "spec": "N/A",
+    "price": 142.67
+  },
+  {
+    "category": "Chicken Rind/Skin, Imported n/a",
+    "name": "Chicken Thigh, Local",
+    "spec": "N/A",
+    "price": 216.04
+  },
+  {
+    "category": "Chicken Thigh, Imported n/a",
+    "name": "Chicken Wing, Local Magnolia",
+    "spec": "N/A",
+    "price": 224.03
+  },
+  {
+    "category": "Chicken Thigh, Imported n/a",
+    "name": "Chicken Wing, Local Bounty Fresh",
+    "spec": "N/A",
+    "price": 233.33
+  },
+  {
+    "category": "Chicken Thigh, Imported n/a",
+    "name": "Chicken Wing, Local Unbranded, Fresh",
+    "spec": "N/A",
+    "price": 217.42
+  },
+  {
+    "category": "Chicken Wing, Imported n/a",
+    "name": "Whole Chicken, Local Magnolia",
+    "spec": "N/A",
+    "price": 213.14
+  },
+  {
+    "category": "Chicken Wing, Imported n/a",
+    "name": "Whole Chicken, Local Bounty Fresh",
+    "spec": "N/A",
+    "price": 212.5
+  },
+  {
+    "category": "Chicken Wing, Imported n/a",
+    "name": "Whole Chicken, Local Fully Dressed",
+    "spec": "N/A",
+    "price": 198.09
+  },
+  {
+    "category": "Whole Chicken, Imported n/a",
+    "name": "Chicken Egg (White, Medium)",
+    "spec": "N/A",
+    "price": 56.0
+  },
+  {
+    "category": "LOWLAND VEGETABLES",
+    "name": "Ampalaya",
+    "spec": "N/A",
+    "price": 4.0
+  },
+  {
+    "category": "LOWLAND VEGETABLES",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 5.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Chilli (Green), Local Haba/Panigang",
+    "spec": "N/A",
+    "price": 217.83
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Eggplant",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Native Pechay",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Pole Sitao",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Squash Suprema Variety",
+    "spec": "N/A",
+    "price": 58.19
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Tomato",
+    "spec": "N/A",
+    "price": 15.0
+  },
+  {
+    "category": "HIGHLAND VEGETABLES",
+    "name": "Bell Pepper (Green), Local Medium (",
+    "spec": "N/A",
+    "price": 151.0
+  },
+  {
+    "category": "Bell Pepper (Green), Imported n/a",
+    "name": "Bell Pepper (Red), Local Medium (",
+    "spec": "N/A",
+    "price": 151.0
+  },
+  {
+    "category": "Bell Pepper (Red), Imported n/a",
+    "name": "Medium (",
+    "spec": "N/A",
+    "price": 8.0
+  },
+  {
+    "category": "Bell Pepper (Red), Imported n/a",
+    "name": "Broccoli, Local",
+    "spec": "N/A",
+    "price": 275.0
+  },
+  {
+    "category": "diameter/bunch hd)",
+    "name": "Broccoli, Imported",
+    "spec": "N/A",
+    "price": 289.84
+  },
+  {
+    "category": "diameter/bunch hd)",
+    "name": "Medium (",
+    "spec": "N/A",
+    "price": 8.0
+  },
+  {
+    "category": "diameter/bunch hd)",
+    "name": "Cauliflower, Local",
+    "spec": "N/A",
+    "price": 163.82
+  },
+  {
+    "category": "Cauliflower, Imported n/a",
+    "name": "Cabbage (Rare Ball)",
+    "spec": "N/A",
+    "price": 510.0
+  },
+  {
+    "category": "Cauliflower, Imported n/a",
+    "name": "Cabbage (Scorpio)",
+    "spec": "N/A",
+    "price": 750.0
+  },
+  {
+    "category": "Cauliflower, Imported n/a",
+    "name": "Cabbage (Wonder Ball)",
+    "spec": "N/A",
+    "price": 510.0
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Carrots, Local",
+    "spec": "N/A",
+    "price": 8.0
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Carrots, Imported",
+    "spec": "N/A",
+    "price": 104.86
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Celery Medium (",
+    "spec": "N/A",
+    "price": 501.0
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Chayote Medium (",
+    "spec": "N/A",
+    "price": 301.0
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Habichuelas/Baguio Beans, Local",
+    "spec": "N/A",
+    "price": 182.25
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Pechay Baguio",
+    "spec": "N/A",
+    "price": 105.27
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Lettuce (Green Ice)",
+    "spec": "N/A",
+    "price": 321.45
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Medium (",
+    "spec": "N/A",
+    "price": 301.0
+  },
+  {
+    "category": "Cabbage, Imported n/a",
+    "name": "Lettuce (Iceberg)",
+    "spec": "N/A",
+    "price": 434.78
+  },
+  {
+    "category": "diameter/bunch hd)",
+    "name": "Lettuce (Romaine)",
+    "spec": "N/A",
+    "price": 350.0
+  },
+  {
+    "category": "Lettuce, Imported n/a",
+    "name": "White Potato, Local",
+    "spec": "N/A",
+    "price": 10.0
+  },
+  {
+    "category": "Lettuce, Imported n/a",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 6.0
+  },
+  {
+    "category": "SPICES",
+    "name": "Chilli (Red), Local Tingala",
+    "spec": "N/A",
+    "price": 672.73
+  },
+  {
+    "category": "Tiger Chillies, Imported n/a",
+    "name": "Garlic, Native/Local",
+    "spec": "N/A",
+    "price": 400.0
+  },
+  {
+    "category": "Tiger Chillies, Imported n/a",
+    "name": "Garlic, Imported",
+    "spec": "N/A",
+    "price": 152.55
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "Ginger, Local",
+    "spec": "N/A",
+    "price": 161.34
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "(",
+    "spec": "N/A",
+    "price": 150.0
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "Ginger, Imported",
+    "spec": "N/A",
+    "price": 158.46
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "(",
+    "spec": "N/A",
+    "price": 150.0
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "Red Onion, Local",
+    "spec": "N/A",
+    "price": 13.0
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "Red Onion, Imported Medium",
+    "spec": "N/A",
+    "price": 167.14
+  },
+  {
+    "category": "Fairly well-matured, Medium",
+    "name": "Red Onion, Imported Large",
+    "spec": "N/A",
+    "price": 144.23
+  },
+  {
+    "category": "White Onion, Local n/a",
+    "name": "White Onion, Imported Medium",
+    "spec": "N/A",
+    "price": 134.44
+  },
+  {
+    "category": "White Onion, Local n/a",
+    "name": "White Onion, Imported Large",
+    "spec": "N/A",
+    "price": 121.28
+  },
+  {
+    "category": "FRUITS",
+    "name": "Avocado",
+    "spec": "N/A",
+    "price": 410.0
+  },
+  {
+    "category": "FRUITS",
+    "name": "Banana (Lakatan)",
+    "spec": "N/A",
+    "price": 8.0
+  },
+  {
+    "category": "FRUITS",
+    "name": "Banana (Latundan)",
+    "spec": "N/A",
+    "price": 10.0
+  },
+  {
+    "category": "FRUITS",
+    "name": "Banana (Saba)",
+    "spec": "N/A",
+    "price": 55.22
+  },
+  {
+    "category": "FRUITS",
+    "name": "Calamansi",
+    "spec": "N/A",
+    "price": 187.95
+  },
+  {
+    "category": "FRUITS",
+    "name": "Mango (Carabao) Ripe,",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "FRUITS",
+    "name": "Melon",
+    "spec": "N/A",
+    "price": 107.5
+  },
+  {
+    "category": "FRUITS",
+    "name": "Papaya Solo, Ripe,",
+    "spec": "N/A",
+    "price": 2.0
+  },
+  {
+    "category": "FRUITS",
+    "name": "Pomelo",
+    "spec": "N/A",
+    "price": 167.17
+  },
+  {
+    "category": "FRUITS",
+    "name": "Watermelon",
+    "spec": "N/A",
+    "price": 79.26
+  },
+  {
+    "category": "OTHER BASIC COMMODITIES",
+    "name": "Salt (Rock)",
+    "spec": "N/A",
+    "price": 22.07
+  },
+  {
+    "category": "OTHER BASIC COMMODITIES",
+    "name": "Salt (Iodized)",
+    "spec": "N/A",
+    "price": 40.46
+  },
+  {
+    "category": "OTHER BASIC COMMODITIES",
+    "name": "Sugar (Refined)",
+    "spec": "N/A",
+    "price": 82.04
+  },
+  {
+    "category": "OTHER BASIC COMMODITIES",
+    "name": "Sugar (Washed)",
+    "spec": "N/A",
+    "price": 75.34
+  },
+  {
+    "category": "OTHER BASIC COMMODITIES",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 7.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Sugar (Brown)",
+    "spec": "N/A",
+    "price": 73.76
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Palm)",
+    "spec": "N/A",
+    "price": 350.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Palm)",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Coconut)",
+    "spec": "N/A",
+    "price": 350.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Coconut)",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Minola)",
+    "spec": "N/A",
+    "price": 500.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Minola)",
+    "spec": "N/A",
+    "price": 1000.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Spring)",
+    "spec": "N/A",
+    "price": 500.0
+  },
+  {
+    "category": "UNIT (P/UNIT)",
+    "name": "Cooking Oil (Spring)",
+    "spec": "N/A",
+    "price": 1000.0
+  },
+  {
+    "category": "Cooking Oil (Palm Olein, Jolly",
+    "name": "",
+    "spec": "N/A",
+    "price": 1000.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 1.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 2.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 3.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 4.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 5.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 6.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 7.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 8.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 9.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 10.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 11.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 12.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 13.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 14.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 15.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 16.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 17.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 18.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 19.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "",
+    "spec": "N/A",
+    "price": 20.0
+  },
+  {
+    "category": "d) Covered markets:",
+    "name": "Page",
+    "spec": "N/A",
+    "price": 8.0
+  }
+]

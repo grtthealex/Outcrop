@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "270285366458",
+    "project_id": "outcrop-67996",
+    "storage_bucket": "outcrop-67996.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270285366458:android:2d7c167f505d7d864c4e83",
+        "android_client_info": {
+          "package_name": "com.example.outcrop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRIqxvUJAsudm_1qzD5iFv3bc8-6eFV-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
