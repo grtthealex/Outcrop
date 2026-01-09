@@ -18,7 +18,10 @@ class ProductService {
   }
 
   // Batch Upload: Logic ported from your original Python script
-  static Future<void> uploadBatch(String date, List<ProductCardModel> products) async {
+  static Future<void> uploadBatch(
+    String date,
+    List<ProductCardModel> products,
+  ) async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
     final WriteBatch batch = firestore.batch();
     final collection = firestore.collection(date);
@@ -31,7 +34,7 @@ class ProductService {
 
     // 2. Map extracted products to Firestore document format
     for (var product in products) {
-      final docRef = collection.doc(); 
+      final docRef = collection.doc();
       batch.set(docRef, {
         'name': product.name,
         'spec': product.spec,

@@ -5,14 +5,23 @@ import '../models/product_card_model.dart';
 class PdfExtractionService {
   // ---------------- CONFIG ----------------
   static final Set<String> headerKeywords = {
-    "COMMODITY", "SPECIFICATION", "PREVAILING", "RETAIL", "PRICE",
-    "UNIT", "P/UNIT", "DAILY", "INDEX", "NATIONAL", "REGION",
+    "COMMODITY",
+    "SPECIFICATION",
+    "PREVAILING",
+    "RETAIL",
+    "PRICE",
+    "UNIT",
+    "P/UNIT",
+    "DAILY",
+    "INDEX",
+    "NATIONAL",
+    "REGION",
   };
 
   // IMPROVED: Flexible price pattern to handle spaces or weird formatting at the end
   // Matches: 52.00, 52 . 00, 1,250.00, etc.
   static final RegExp pricePattern = RegExp(r"(\d[\d,\s]*\.\s*\d{2})$");
-  
+
   static final RegExp percentPattern = RegExp(r"\d.*?%");
   static final RegExp pureSpecPattern = RegExp(
     r"^\d+[,\d]*\s*(ml|l|g|kg|pcs|pc|pack|bottle|box)",
@@ -42,13 +51,17 @@ class PdfExtractionService {
   static Future<List<ProductCardModel>> extractProducts(List<int> bytes) async {
     final PdfDocument document = PdfDocument(inputBytes: bytes);
     final PdfTextExtractor extractor = PdfTextExtractor(document);
-    
+
     List<ProductCardModel> products = [];
     String? currentCategory;
 
     for (int i = 0; i < document.pages.count; i++) {
       String text = extractor.extractText(startPageIndex: i, endPageIndex: i);
-      List<String> lines = text.split('\n').map((l) => l.trim()).where((l) => l.isNotEmpty).toList();
+      List<String> lines = text
+          .split('\n')
+          .map((l) => l.trim())
+          .where((l) => l.isNotEmpty)
+          .toList();
 
       for (int j = 0; j < lines.length; j++) {
         String line = lines[j];
@@ -72,18 +85,22 @@ class PdfExtractionService {
 
         if (priceMatch != null) {
           content = line.substring(0, priceMatch.start).trim();
-          String priceStr = priceMatch.group(1)!.replaceAll(RegExp(r'[\s,]'), '');
+          String priceStr = priceMatch
+              .group(1)!
+              .replaceAll(RegExp(r'[\s,]'), '');
           price = double.tryParse(priceStr);
-        } 
+        }
         // 4. MULTILINE FALLBACK: If no price, check if the NEXT line is just a price
         else if (j + 1 < lines.length) {
-          String nextLine = lines[j+1];
+          String nextLine = lines[j + 1];
           var nextPriceMatch = pricePattern.firstMatch(nextLine);
-          
+
           // If the next line is exactly a price (or ends with one)
           if (nextPriceMatch != null && nextLine.length < 15) {
             content = line; // The current line is the name
-            String priceStr = nextPriceMatch.group(1)!.replaceAll(RegExp(r'[\s,]'), '');
+            String priceStr = nextPriceMatch
+                .group(1)!
+                .replaceAll(RegExp(r'[\s,]'), '');
             price = double.tryParse(priceStr);
             j++; // Consume the next line so we don't process it again
           }
@@ -91,17 +108,20 @@ class PdfExtractionService {
 
         // 5. Validation and Cleanup
         if (price == null || price < 5 || content.isEmpty) continue;
-        if (headerKeywords.any((k) => content.toUpperCase().contains(k))) continue;
+        if (headerKeywords.any((k) => content.toUpperCase().contains(k)))
+          continue;
         if (pureSpecPattern.hasMatch(content)) continue;
 
         final result = _extractNameAndSpec(content);
-        
-        products.add(ProductCardModel(
-          category: currentCategory,
-          name: result["name"]!,
-          spec: result["spec"]!,
-          price: price,
-        ));
+
+        products.add(
+          ProductCardModel(
+            category: currentCategory,
+            name: result["name"]!,
+            spec: result["spec"]!,
+            price: price,
+          ),
+        );
       }
     }
 

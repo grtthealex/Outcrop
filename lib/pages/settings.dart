@@ -54,19 +54,23 @@ class SettingsBody extends StatelessWidget {
 
       try {
         final bytes = result.files.first.bytes;
-        
+
         if (bytes == null) {
-          throw Exception("Could not read file data. Try picking the file again.");
+          throw Exception(
+            "Could not read file data. Try picking the file again.",
+          );
         }
 
         // 1. Extract data using the Dart port of your Python script
         final products = await PdfExtractionService.extractProducts(bytes);
-        
+
         // Debug check for the console
         debugPrint("Extracted ${products.length} products from PDF");
 
         if (products.isEmpty) {
-          throw Exception("No products were found in the PDF. Check if the format matches the script logic.");
+          throw Exception(
+            "No products were found in the PDF. Check if the format matches the script logic.",
+          );
         }
 
         // 2. Upload to Firestore using selectedDate as collection name
@@ -76,7 +80,9 @@ class SettingsBody extends StatelessWidget {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text("Success! ${products.length} items added to $selectedDate"),
+            content: Text(
+              "Success! ${products.length} items added to $selectedDate",
+            ),
             backgroundColor: Colors.green,
           ),
         );
@@ -149,7 +155,11 @@ class SettingsBody extends StatelessWidget {
               const SizedBox(height: 20),
               const Text(
                 "Admin Panel",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blueGrey),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey,
+                ),
               ),
               const SizedBox(height: 10),
               ElevatedButton.icon(
@@ -157,11 +167,16 @@ class SettingsBody extends StatelessWidget {
                 icon: const Icon(Icons.upload_file),
                 // Corrected string interpolation for selectedDate
                 label: Text("Upload PDF to $selectedDate"),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.shade50),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue.shade50,
+                ),
               ),
               Text(
                 "Note: This overwrites the existing database for $selectedDate.",
-                style: const TextStyle(fontSize: 11, fontStyle: FontStyle.italic),
+                style: const TextStyle(
+                  fontSize: 11,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
             ],
 

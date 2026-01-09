@@ -19,7 +19,7 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   final Set<String> _favorites = {};
   int _currentIndex = 0;
-  bool _isAdmin = false; 
+  bool _isAdmin = false;
   String selectedDate = "2026-01-01";
   late Future<List<ProductCardModel>> _productsFuture;
 
@@ -45,7 +45,7 @@ class _RootState extends State<Root> {
 
     if (doc.exists) {
       final data = doc.data()!;
-      
+
       // Update state once data is fetched
       setState(() {
         _favorites.clear();
@@ -118,7 +118,9 @@ class _RootState extends State<Root> {
       case 0:
         return _buildProductsView(
           builder: (products) => HomeBody(
-            key: ValueKey('home_$_favorites'), // Key forces rebuild on favorite change
+            key: ValueKey(
+              'home_$_favorites',
+            ), // Key forces rebuild on favorite change
             categories: categoriesList,
             products: products,
             favorites: _favorites,
@@ -148,7 +150,9 @@ class _RootState extends State<Root> {
       case 1:
         return _buildProductsView(
           builder: (products) => FavouritesBody(
-            key: ValueKey('fav_$_favorites'), // Key forces rebuild on favorite change
+            key: ValueKey(
+              'fav_$_favorites',
+            ), // Key forces rebuild on favorite change
             products: products,
             favorites: _favorites,
             onToggleFavorite: _toggleFavorite,

@@ -8,20 +8,22 @@ class CommentService {
   // Stream of comments for a specific product name
   // lib/services/comment_service.dart
 
-// lib/services/comment_service.dart
+  // lib/services/comment_service.dart
 
-Stream<List<ProductComment>> getComments(String productName) {
-  return _db
-      .collection('product_comments')
-      .where('productName', isEqualTo: productName)
-      .orderBy('timestamp', descending: true)
-      // includeMetadataChanges ensures the comment stays visible while uploading
-      .snapshots(includeMetadataChanges: true) 
-      .map((snapshot) => snapshot.docs.map((doc) {
+  Stream<List<ProductComment>> getComments(String productName) {
+    return _db
+        .collection('product_comments')
+        .where('productName', isEqualTo: productName)
+        .orderBy('timestamp', descending: true)
+        // includeMetadataChanges ensures the comment stays visible while uploading
+        .snapshots(includeMetadataChanges: true)
+        .map(
+          (snapshot) => snapshot.docs.map((doc) {
             final data = doc.data();
             return ProductComment.fromFirestore(data);
-          }).toList());
-}
+          }).toList(),
+        );
+  }
 
   // Add a new comment
   Future<void> addComment(String productName, String text) async {

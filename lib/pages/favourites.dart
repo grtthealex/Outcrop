@@ -13,31 +13,7 @@ class FavouritesAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-<<<<<<< HEAD
-      leading: Container(
-        margin: EdgeInsets.all(3),
-        child: Image.asset('assets/images/OutCrop_Logo.png'),
-      ),
-      backgroundColor: Color(0xFF5ce1e6),
-      title: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Stack(
-            children: [
-              Icon(Icons.star, size: 25, color: Colors.yellow),
-              Icon(
-                Icons.star_border,
-                size: 25,
-                color: const Color.fromARGB(223, 210, 189, 33),
-              ),
-            ],
-          ),
-          Text('Favourites'),
-        ],
-      ),
-=======
       title: const Text('My Favorites'),
->>>>>>> Final
       centerTitle: true,
       backgroundColor: const Color(0xFF5ce1e6),
     );
@@ -59,13 +35,12 @@ class FavouritesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Only show products that are in the favorites set
-    final favoriteProducts =
-        products.where((p) => favorites.contains(p.name)).toList();
+    final favoriteProducts = products
+        .where((p) => favorites.contains(p.name))
+        .toList();
 
     if (favoriteProducts.isEmpty) {
-      return const Center(
-        child: Text("You haven't added any favorites yet."),
-      );
+      return const Center(child: Text("You haven't added any favorites yet."));
     }
 
     return ListView.builder(
