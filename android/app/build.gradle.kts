@@ -17,12 +17,12 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.example.outcrop" // change if needed
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.outcrop"
         minSdk = flutter.minSdkVersion
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1 // <-- replace with your app version code
         versionName = "1.0.0" // <-- replace with your app version name
     }
