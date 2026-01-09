@@ -19,6 +19,79 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   final Set<String> _favorites = {};
   int _currentIndex = 0;
+  bool _isAdmin = false; 
+  String selectedDate = "2026-01-01";
+  late Future<List<ProductCardModel>> _productsFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _productsFuture = ProductService.fetchProductsByDate(selectedDate);
+    _loadUserFavorites();
+  }
+
+  /// Load favorites + selectedDate + isAdmin status from Firestore
+  Future<void> _loadUserFavorites() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      _loadProducts();
+      return;
+    }
+
+    final doc = await FirebaseFirestore.instance
+        .collection('users_fav')
+        .doc(user.uid)
+        .get();
+
+    if (doc.exists) {
+      final data = doc.data()!;
+      
+      // Update state once data is fetched
+      setState(() {
+        _favorites.clear();
+        _favorites.addAll(List<String>.from(data['favorites'] ?? []));
+        selectedDate = data['selectedDate'] ?? selectedDate;
+        _isAdmin = data['isAdmin'] ?? false;
+      });
+    }
+
+    _loadProducts();
+  }
+
+  void _loadProducts() {
+    setState(() {
+      _productsFuture = ProductService.fetchProductsByDate(selectedDate);
+    });
+  }
+
+  // Improved Toggle Logic for instant UI feedback
+  Future<void> _toggleFavorite(ProductCardModel product) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    // 1. Update UI Instantly
+    setState(() {
+      if (_favorites.contains(product.name)) {
+        _favorites.remove(product.name);
+      } else {
+        _favorites.add(product.name);
+      }
+    });
+
+    // 2. Update Firebase in the background
+    await FirebaseFirestore.instance.collection('users_fav').doc(user.uid).set({
+      'favorites': _favorites.toList(),
+      'selectedDate': selectedDate,
+    }, SetOptions(merge: true));
+  }
+
+  void _onDateChanged(String newDate) {
+    setState(() {
+      selectedDate = newDate;
+      _productsFuture = ProductService.fetchProductsByDate(selectedDate);
+      _currentIndex = 0;
+    });
+  }
 
   Widget _buildProductsView({
     required Widget Function(List<ProductCardModel>) builder,
@@ -38,6 +111,57 @@ class _RootState extends State<Root> {
         return builder(snapshot.data!);
       },
     );
+  }
+
+  Widget _body() {
+    switch (_currentIndex) {
+      case 0:
+        return _buildProductsView(
+          builder: (products) => HomeBody(
+            key: ValueKey('home_$_favorites'), // Key forces rebuild on favorite change
+            categories: categoriesList,
+            products: products,
+            favorites: _favorites,
+            onToggleFavorite: _toggleFavorite,
+            onCategoryTap: (category, imagePath) async {
+              // Await the push so we can refresh the state when the user comes back
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => CategoryPage(
+                    category: category,
+                    allProducts: products,
+                    favorites: _favorites,
+                    onToggleFavorite: (product) {
+                      _toggleFavorite(product);
+                    },
+                    imagePath: imagePath,
+                  ),
+                ),
+              );
+              // Trigger a rebuild when returning from CategoryPage
+              setState(() {});
+            },
+          ),
+        );
+
+      case 1:
+        return _buildProductsView(
+          builder: (products) => FavouritesBody(
+            key: ValueKey('fav_$_favorites'), // Key forces rebuild on favorite change
+            products: products,
+            favorites: _favorites,
+            onToggleFavorite: _toggleFavorite,
+          ),
+        );
+
+      default:
+        return SettingsBody(
+          selectedDate: selectedDate,
+          onDateChanged: _onDateChanged,
+          isAdmin: _isAdmin,
+        );
+    }
   }
 
   final List<PreferredSizeWidget> _appbars = const [
@@ -65,111 +189,5 @@ class _RootState extends State<Root> {
         ],
       ),
     );
-  }
-
-  Widget _body() {
-    switch (_currentIndex) {
-      case 0:
-        return _buildProductsView(
-          builder: (products) => HomeBody(
-            key: ValueKey(_favorites.length),
-            categories: categoriesList,
-            products: products,
-            favorites: _favorites,
-            onToggleFavorite: _toggleFavorite,
-            onCategoryTap: (category, imagePath) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => CategoryPage(
-                    category: category,
-                    allProducts: products,
-                    favorites: _favorites,
-                    onToggleFavorite: _toggleFavorite,
-                    imagePath: imagePath,
-                  ),
-                ),
-              );
-            },
-          ),
-        );
-
-      case 1:
-        return _buildProductsView(
-          builder: (products) => FavouritesBody(
-            key: ValueKey(_favorites.length),
-            products: products,
-            favorites: _favorites,
-            onToggleFavorite: _toggleFavorite,
-          ),
-        );
-
-      default:
-        return SettingsBody(
-          selectedDate: selectedDate,
-          onDateChanged: _onDateChanged,
-        );
-    }
-  }
-
-  String selectedDate = "2026-01-01";
-  late Future<List<ProductCardModel>> _productsFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _productsFuture = ProductService.fetchProductsByDate(selectedDate);
-    _loadUserFavorites();
-  }
-
-  /// Load favorites + selectedDate from Firestore
-  Future<void> _loadUserFavorites() async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      _loadProducts();
-      return;
-    }
-
-    final doc = await FirebaseFirestore.instance
-        .collection('users_fav')
-        .doc(user.uid)
-        .get();
-
-    if (doc.exists) {
-      final data = doc.data()!;
-      _favorites.addAll(List<String>.from(data['favorites'] ?? []));
-      selectedDate = data['selectedDate'] ?? selectedDate;
-    }
-
-    _loadProducts();
-    setState(() {});
-  }
-
-  void _loadProducts() {
-    _productsFuture = ProductService.fetchProductsByDate(selectedDate);
-  }
-
-  Future<void> _toggleFavorite(ProductCardModel product) async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) return;
-
-    setState(() {
-      _favorites.contains(product.name)
-          ? _favorites.remove(product.name)
-          : _favorites.add(product.name);
-    });
-
-    await FirebaseFirestore.instance.collection('users_fav').doc(user.uid).set({
-      'favorites': _favorites.toList(),
-      'selectedDate': selectedDate,
-    }, SetOptions(merge: true));
-  }
-
-  void _onDateChanged(String newDate) {
-    setState(() {
-      selectedDate = newDate;
-      _productsFuture = ProductService.fetchProductsByDate(selectedDate);
-      _currentIndex = 0;
-    });
   }
 }

@@ -1,39 +1,21 @@
+// lib/pages/favourites.dart
+
 import 'package:flutter/material.dart';
-import 'package:outcrop/models/product_card_model.dart';
-import 'package:outcrop/widgets/product_card_widget.dart';
+import '../models/product_card_model.dart';
+import '../widgets/product_card_widget.dart';
 
 class FavouritesAppBar extends StatelessWidget implements PreferredSizeWidget {
   const FavouritesAppBar({super.key});
+
   @override
   Size get preferredSize => const Size.fromHeight(56);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Container(
-        margin: EdgeInsets.all(3),
-        child: Image.asset('assets/images/OutCrop_Logo.png'),
-      ),
-      backgroundColor: Color(0xFF5ce1e6),
-      title: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Stack(
-            children: [
-            Icon(
-              Icons.star,
-            size: 25,
-            color: Colors.yellow,
-            ),
-            Icon(Icons.star_border,
-            size:25,
-            color: const Color.fromARGB(223, 210, 189, 33),
-          ),
-            ],
-          ),
-          Text('Favourites'),
-        ],
-      ),
+      title: const Text('My Favorites'),
       centerTitle: true,
+      backgroundColor: const Color(0xFF5ce1e6),
     );
   }
 }
@@ -52,28 +34,26 @@ class FavouritesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favProducts = products
-        .where((product) => favorites.contains(product.name))
-        .toList();
+    // Only show products that are in the favorites set
+    final favoriteProducts =
+        products.where((p) => favorites.contains(p.name)).toList();
 
-    if (favProducts.isEmpty) {
-      return const Center(child: Text('No favorites yet'));
+    if (favoriteProducts.isEmpty) {
+      return const Center(
+        child: Text("You haven't added any favorites yet."),
+      );
     }
 
     return ListView.builder(
-      padding: const EdgeInsets.all(30),
-      itemCount: favProducts.length,
+      padding: const EdgeInsets.all(10),
+      itemCount: favoriteProducts.length,
       itemBuilder: (context, index) {
-        final product = favProducts[index];
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: Center(
-            child: ProductCardWidget(
-              product: product,
-              isFavorite: true,
-              onFavoriteToggle: () => onToggleFavorite(product),
-            ),
-          ),
+        final product = favoriteProducts[index];
+        // FIX: Pass the new required parameters to ProductWidget
+        return ProductWidget(
+          product: product,
+          isFavorite: true, // Always true on this page
+          onToggleFavorite: () => onToggleFavorite(product),
         );
       },
     );

@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   bool _loading = false;
-  bool _obscurePassword = true; // for eye toggle
+  bool _obscurePassword = true;
 
   @override
   void dispose() {
