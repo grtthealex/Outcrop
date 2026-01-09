@@ -73,20 +73,20 @@ with pdfplumber.open(pdf_path) as pdf:
 
         for line in lines:
 
-            # ❌ Skip page markers
+            #Skip page markers
             if line.lower().startswith("page"):
                 continue
 
-            # ✅ CATEGORY detection
+            #CATEGORY detection
             if is_valid_category(line):
                 current_category = line
                 continue
 
-            # ❌ Ignore anything before a category exists
+            #Ignore anything before a category exists
             if current_category is None:
                 continue
 
-            # ✅ Must end with a valid price
+            #Must end with a valid price
             tokens = line.split()
             last_token = tokens[-1]
 
@@ -95,21 +95,21 @@ with pdfplumber.open(pdf_path) as pdf:
 
             price = float(last_token)
 
-            # ❌ Filter garbage prices (years, page numbers)
+            #Filter garbage prices (years, page numbers)
             if price < 10:
                 continue
 
             content = " ".join(tokens[:-1]).strip()
 
-            # ❌ Skip header remnants
+            #Skip header remnants
             if any(keyword in content.upper() for keyword in HEADER_KEYWORDS):
                 continue
 
-            # ❌ Skip lines that are PURE specifications
+            #Skip lines that are PURE specifications
             if pure_spec_pattern.match(content):
                 continue
 
-            # ✅ Extract name & spec
+            #Extract name & spec
             name, spec = extract_name_and_spec(content)
 
 
